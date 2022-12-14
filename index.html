@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+        />
+        <title>Weather Dash</title>
+    </head>
+    <body>
+        <section class="hero is-primary container is-fluid has-text-centered">
+            <div class="hero-body">
+                <p class="title">Weather Dashboard</p>
+            </div>
+        </section>
+        <section class="tile columns is-ancestor mr-3 ml-3">
+            <section class="tile column block is-3 is-parent is-vertical">
+                <div
+                    class="field is-grouped is-grouped-multiline control is-child box level-left"
+                    id="search"
+                >
+                    <input
+                        placeholder="Search for a city"
+                        class="input control is-normal"
+                        type="text"
+                    />
+                    <button
+                        class="control is-expanded button is-normal is-info"
+                    >
+                        search
+                    </button>
+                </div>
+                <section
+                    class="tile is-vertical is-primary is-multiline is-parent has-text-white"
+                    id="prev-weather"
+                >
+                    <div class="tag is-medium is-child has-text-centered block">
+                        Test
+                    </div>
+                    <div class="is-child has-text-centered block">Test</div>
+                </section>
+            </section>
+            <section class="tile is-parent block m-1 is-9 is-vertical">
+                <div id="weather-info" class="box tile is-child">Test</div>
+                <section class="columns is-multiline is-centered is-child">
+                    <div class="is-one-fifth column box is-2 m-2">test</div>
+                    <div class="is-one-fifth column box is-2 m-2">test</div>
+                    <div class="is-one-fifth column box is-2 m-2">test</div>
+                    <div class="is-one-fifth column box is-2 m-2">test</div>
+                    <div class="is-one-fifth column box is-2 m-2">test</div>
+                </section>
+            </section>
+        </section>
+        <script src="assets/script.js"></script>
+    </body>
+</html>
