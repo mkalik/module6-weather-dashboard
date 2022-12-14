@@ -22,11 +22,13 @@
                     id="search"
                 >
                     <input
+                        id="city-search"
                         placeholder="Search for a city"
                         class="input control is-normal"
                         type="text"
                     />
                     <button
+                        id="search-button"
                         class="control is-expanded button is-normal is-info"
                     >
                         search
@@ -36,23 +38,49 @@
                     class="tile is-vertical is-primary is-multiline is-parent has-text-white"
                     id="prev-weather"
                 >
-                    <div class="tag is-medium is-child has-text-centered block">
-                        Test
-                    </div>
-                    <div class="is-child has-text-centered block">Test</div>
+                    <!-- <div -->
+                    <!--     class="tag is-medium is-child has-text-centered block" -->
+                    <!-- ></div> -->
+                    <!-- <div class="is-child has-text-centered block">Test</div> -->
                 </section>
             </section>
-            <section class="tile is-parent block m-1 is-9 is-vertical">
-                <div id="weather-info" class="box tile is-child">Test</div>
-                <section class="columns is-multiline is-centered is-child">
-                    <div class="is-one-fifth column box is-2 m-2">test</div>
-                    <div class="is-one-fifth column box is-2 m-2">test</div>
-                    <div class="is-one-fifth column box is-2 m-2">test</div>
-                    <div class="is-one-fifth column box is-2 m-2">test</div>
-                    <div class="is-one-fifth column box is-2 m-2">test</div>
+            <section
+                id="weather-dash"
+                class="tile is-parent block m-1 is-9 is-vertical"
+                style="display: none"
+            >
+                <div id="weather-now" class="box tile is-child"></div>
+                <h2 style="font-size: 25px; margin: auto auto 25px 10px">
+                    Five day forecast:
+                </h2>
+                <section
+                    id="weather-info"
+                    class="columns is-multiline is-centered is-child"
+                >
+                    <div
+                        id="day-1"
+                        class="is-one-fifth column box is-2 m-2"
+                    ></div>
+                    <div
+                        id="day-2"
+                        class="is-one-fifth column box is-2 m-2"
+                    ></div>
+                    <div
+                        id="day-3"
+                        class="is-one-fifth column box is-2 m-2"
+                    ></div>
+                    <div
+                        id="day-4"
+                        class="is-one-fifth column box is-2 m-2"
+                    ></div>
+                    <div
+                        id="day-5"
+                        class="is-one-fifth column box is-2 m-2"
+                    ></div>
                 </section>
             </section>
         </section>
+        <button class="button is-large is-info" onclick="clearLocal()"></button>
         <script src="assets/script.js"></script>
     </body>
 </html>
