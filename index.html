@@ -21,15 +21,18 @@
                     class="field is-grouped is-grouped-multiline control is-child box level-left"
                     id="search"
                 >
+                    <div class="title">Search for a city!</div>
                     <input
                         id="city-search"
                         placeholder="Search for a city"
                         class="input control is-normal"
                         type="text"
+                        onkeydown="checkEnter(event)"
                     />
                     <button
                         id="search-button"
                         class="control is-expanded button is-normal is-info"
+                        onclick="SearchCheck(event)"
                     >
                         search
                     </button>
@@ -43,6 +46,12 @@
                     <!-- ></div> -->
                     <!-- <div class="is-child has-text-centered block">Test</div> -->
                 </section>
+                <button
+                    class="button is-small is-info is-centered"
+                    onclick="clearLocal()"
+                >
+                    Clear previous searches
+                </button>
             </section>
             <section
                 id="weather-dash"
@@ -80,7 +89,10 @@
                 </section>
             </section>
         </section>
-        <button class="button is-large is-info" onclick="clearLocal()"></button>
         <script src="assets/script.js"></script>
+        <script
+            src="https://kit.fontawesome.com/83ebf770ba.js"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>
