@@ -16,7 +16,6 @@ function clearSearchInput() {
     document.querySelector('#city-search').value = '';
 }
 
-var citySearch = document.querySelector('#search-button');
 var weatherIcons = {
     Thunderstorm: 'fa-solid fa-bolt',
     Rain: 'fa-solid fa-cloud-showers-heavy',
@@ -33,6 +32,7 @@ function checkEnter(event) {
     }
 }
 function SearchCheck(event) {
+    //checks to make sure a user has entered both a city and a state.
     event.preventDefault();
     var searchInput = document.querySelector('#city-search').value;
     if (searchInput === '') {
@@ -55,20 +55,20 @@ function SearchCheck(event) {
     }
 }
 function createWeatherDash(key) {
+    //creates the weather dashboard that displays all information
     console.log(key);
-    var weatherIcon = document.createElement('i');
     var weatherInfo = JSON.parse(localStorage.getItem(key));
     var dash = document.querySelector('#weather-dash');
-    dash.removeAttribute('style');
+    dash.setAttribute('style', 'display:block');
     var currInfo = document.querySelector('#weather-now');
     var curr = document.createElement('div');
     curr.textContent = key;
     var currDay = new Date();
     console.log(weatherInfo[0].weather[0]);
-    currInfo.innerHTML = `<h2 style = 'font-size:20px'>${key} (${currDay.toLocaleDateString()}) <i class = '${
+    currInfo.innerHTML = `<h2 style = 'font-size:30px'>${key} (${currDay.toLocaleDateString()}) <i class = '${
         weatherIcons[weatherInfo[0].weather[0].main]
     }'></h2>`;
-    currInfo.innerHTML += `<ul><li>Temp: ${weatherInfo[0].main.temp} °F</li><li>Wind: ${weatherInfo[0].wind.speed} MPH</li><li>Humidity: ${weatherInfo[0].main.humidity} %</li></ul>`;
+    currInfo.innerHTML += `<ul style ='font-size:25px'><li>Temp: ${weatherInfo[0].main.temp} °F</li><li>Wind: ${weatherInfo[0].wind.speed} MPH</li><li>Humidity: ${weatherInfo[0].main.humidity} %</li></ul>`;
 
     var foreInfo = document.querySelector('#weather-info').children;
     var days = Array.from(foreInfo);
@@ -77,16 +77,16 @@ function createWeatherDash(key) {
     for (let x = 0; x < 5; x++) {
         console.log(days[x]);
         days[x].setAttribute('style', 'background:#006859;color:#ffffff');
-        days[x].innerHTML = `<h3>(${new Date(
+        days[x].innerHTML = `<h3>${new Date(
             weatherInfo[x + 1].dt * 1000
-        ).toLocaleDateString()}) <i class = '${
+        ).toLocaleDateString()} - <i class = '${
             weatherIcons[weatherInfo[x + 1].weather[0].main]
         }'</h3>`;
-        days[x].innerHTML += `<ul><li>Temp: ${
+        days[x].innerHTML += `<ul ><li><b>Temp:</b> ${
             weatherInfo[x + 1].main.temp
-        } °F</li><li>Wind: ${
+        } °F</li><li><b>Wind:</b> ${
             weatherInfo[x + 1].wind.speed
-        } MPH</li><li>Humidity: ${
+        } MPH</li><li><b>Humidity:</b> ${
             weatherInfo[x + 1].main.humidity
         } %</li></ul>`;
     }
@@ -127,7 +127,7 @@ async function getWeather(spot) {
     await fetch(currWeatherAPI)
         .then((data) => data.json())
         .then((curr) => (console.log(curr), fiveDays.push(curr)));
-    var forecast = await fetch(weatherAPI)
+    await fetch(weatherAPI)
         .then((data) => data.json())
         .then(function (weather) {
             console.log(weather);
@@ -154,15 +154,8 @@ async function getWeather(spot) {
                     return;
                 }
             }
-
-            // }
-
-            // else if (localStorage.getItem(weather.city.name) == null) {
-            // console.log('in if');
-            // console.log(search);
             localStore(search, fiveDays);
             createPrevSearch(search);
-            // // localStore(weather.city.name, fiveDays);
             createWeatherDash(search);
         });
 }
