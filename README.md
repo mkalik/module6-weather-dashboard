@@ -21,3 +21,6 @@ All work done by Malik Kouyate(mkalik)
 This program makes use of the OpenWeather API, [found here](https://openweathermap.org/api).
 
 (Used the 5-day forecast api, the current weather data api, and the Geocoding api)
+
+The styling was done via [Bulma](https://bulma.io/documentation/) And the icons were generated via [Font Awesome](https://fontawesome.com/)
+
