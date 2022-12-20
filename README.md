@@ -8,7 +8,7 @@
 
 ## 1.Installation:
 
-clone this repo and start open the index.html file in your browser. 
+clone this repo and open the index.html file in your browser. 
 
 ## 2.Usage:
 
